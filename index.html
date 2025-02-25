@@ -10,33 +10,35 @@
       body {display: flex;
       margin: 0;
       padding: 0;
-      background-color: RGB(200,220,300);
+
         justify-content: center;
+        align-items: center
         
       }
      
      
         #charInput {display: flex;
-          padding: 40px;
-          width: 500px;
+          padding: 10px;
+          font: white;
+          width: 20px;
           font-size: 20px;
-          border-radius: 2px;
-          border: 2px solid RGB(520,600,100);
+          border-radius: 3px;
+          border: 3px solid white;
           margin: 20px;
-          background-color: RGB(200,400,200);
-          font-family: courier new;
-         
+          background-color: pink;
+          font-family: helvetica;
+        
         }
       
         #submitButton {
-          color: black;
-          background-color: RGB(200,400,200);
+          color: white;
+          background-color: pink;
           margin: 30px;
-          height: 80px;
+          height: 50px;
           border-radius: 5px;
-          border: 2px solid RGB(520,600,100);
+          border: 3px solid white;
             width: 200px;
-          font-family: courier new;
+          font-family: helvetica;
           font-size: 24px;
 
         }
@@ -44,6 +46,12 @@
         /* STYLE FOR THE IMAGE */
         #displayedImage {
             display: none; /* This line is mandatory */
+          width: 300px;
+          height: auto;
+          margin: 40px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10px;
           
         }
     </style>
@@ -56,7 +64,7 @@
 
     <!-- BUTTON TO DISPLAY IMAGE -->
     <button onclick="displayImage()" id="submitButton">Show Image</button>
-
+<br>
     <!-- IMAGE TO DISPLAY -->
     <img id="displayedImage" src="" alt="Displayed Image">
 
@@ -66,32 +74,32 @@
         // Array of images
         // DIRECTIONS: UPDATE THE URLS WITH THE RELATIVE LINKS OF YOUR IMAGES
         const images = [
-            "https://via.placeholder.com/300/00FF00/FFFFFF?text=A", //A
-            "https://via.placeholder.com/300/00FF00/FFFFFF?text=B", //B
-            "https://via.placeholder.com/300/0000FF/FFFFFF?text=C", //C
-            "https://via.placeholder.com/300/FFFF00/000000?text=D", //D
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=E", //E
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=F", //F
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=G", //G
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=H", //H
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=I", //I
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=J", //J
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=K", //K
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=L", //L
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=M", //M
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=N", //N
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=O", //O
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=P", //P
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=Q", //Q
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=R", //R
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=S", //S
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=T", //T
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=U", //U
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=V", //V
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=W", //W
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=X", //X
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=Y", //Y
-            "https://via.placeholder.com/300/FF00FF/FFFFFF?text=Z"  //Z
+            "https://i.pinimg.com/736x/92/76/b6/9276b6c80df0085594bc43365d4499c3.jpg", //A
+            "https://i.pinimg.com/474x/4e/95/de/4e95de1138259e3c3a434b6301e562c4.jpg", //B
+            "https://i.pinimg.com/736x/92/76/b6/9276b6c80df0085594bc43365d4499c3.jpg", //C
+            "https://i.pinimg.com/474x/3a/d7/fc/3ad7fc859747c5a0ca670d6cb9528223.jpg", //D
+            "https://i.pinimg.com/736x/a6/9a/bf/a69abf4c25a5494b90187c2e156e0a0c.jpg", //E
+            "https://i.pinimg.com/736x/1b/c1/96/1bc1964f30dd5ac46ca7795fcd9d9acc.jpg", //F
+            "https://i.pinimg.com/736x/3d/2e/13/3d2e139874a85b53807ce68845d247e3.jpg", //G
+            "https://i.pinimg.com/736x/e6/de/c5/e6dec511d88b980a02f392aea066faca.jpg", //H
+            "https://i.pinimg.com/736x/81/d7/92/81d792bd74dd4bca9ff5d34c3ecf180e.jpg", //I
+            "https://i.pinimg.com/736x/65/2a/9c/652a9c02a95d1c815f1c4b0193a5c751.jpg", //J
+            "https://i.pinimg.com/736x/32/c4/b1/32c4b1112abe963913365cef2b0491ea.jpg", //K
+            "https://i.pinimg.com/736x/40/33/32/403332bf9be6e10ada171353acd9195b.jpg", //L
+            "https://i.pinimg.com/736x/bd/20/db/bd20db24b363c0b72ee364df1c07723a.jpg", //M
+            "https://i.pinimg.com/736x/28/3c/17/283c17b7c782f143181d3d9c73761f62.jpg", //N
+            "https://i.pinimg.com/736x/6e/18/f3/6e18f34e226941b4808d6b6501275949.jpg", //O
+            "https://i.pinimg.com/736x/c0/4d/d9/c04dd9f2f21dd81967e4e029acb3f2ad.jpg", //P
+            "https://i.pinimg.com/736x/16/b2/e6/16b2e6c7e5f568f863d2a04be70cddaf.jpg", //Q
+            "https://i.pinimg.com/736x/bb/db/45/bbdb451312a2dcf4cbda02a5f85074b1.jpg", //R
+            "https://i.pinimg.com/736x/41/cd/4e/41cd4e553e6f723e00ce829d0667ae63.jpg", //S
+            "https://i.pinimg.com/736x/43/10/51/431051554ba92d0c6a8ad0671b3f7cc4.jpg", //T
+            "https://i.pinimg.com/736x/6a/f3/d9/6af3d9373393b349cad5b057ec9cf7e5.jpg", //U
+            "https://i.pinimg.com/474x/c8/af/ea/c8afea659249f91b0ac4b5ef56889468.jpg", //V
+            "https://i.pinimg.com/474x/c3/d9/b7/c3d9b7503760226316fcf6ec180e3ad6.jpg", //W
+            "https://i.pinimg.com/474x/52/59/6b/52596b612932db92982097789fad5221.jpg", //X
+            "https://i.pinimg.com/474x/21/f0/02/21f002322f059e93ac387e045446146c.jpg", //Y
+            "https://i.pinimg.com/736x/7f/12/49/7f1249ee94193e28c09820b4717f8fc3.jpg"  //Z
         ];
 
         function displayImage() {
