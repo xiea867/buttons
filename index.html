@@ -4,70 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1 INPUT 1 OUTPUT TEMPLATE</title>
+    <link rel="stylesheet" href="style.css">
     <style>
 
 
-      body {display: flex;
-      margin: 0;
-      padding: 0;
-
-        justify-content: center;
-        align-items: center;
+      body {
         background-color: black
         
       }
+   
      
-     
-        #charInput {display: flex;
+        #charInput {
           padding: 10px;
           color: rgb(168, 255, 30);
-          width: 18px;
+          width: 40px;
+          height: 50px;
           font-size: 20px;
-          
+          justify-content: center;
           border: 2px solid rgb(255, 0, 0);
           margin: 20px;
           background-color: black;
-          font-family:timesnewroman ;
+          font-family:timesnewroman;
+          box-sizing: border-box;
         
         }
       
         #submitButton {
           color: rgb(255, 0, 0);
           background-color: black;
-          margin: 30px;
+          margin: 20px;
           height: 50px;
-        
+   
           border: 2px solid rgb(168, 255, 30);
             width: 200px;
           font-family: timesnewroman;
           font-size: 24px;
+          box-sizing: border-box;
+          
 
         }
+      
+      
+       
 
         /* STYLE FOR THE IMAGE */
+      
         #displayedImage {
             display: none; /* This line is mandatory */
-          width: 300px;
+          width: 600px;
           height: auto;
           margin: 40px;
           justify-content: center;
           align-items: center;
+          margin-top: 20px;
+          
        
           
         }
+      .buttons {display: flex;
+        justify-content: center;
+   }
+      .img {display: flex;
+        justify-content: center}
     </style>
 </head>
 <body>
 
-    
-    <!-- INPUT FIELD FOR 1 CHARACTER -->
-    <input type="text" id="charInput" maxlength="1">
+    <div>
+      <!-- INPUT FIELD FOR 1 CHARACTER --><div class=buttons>
+      <input type="text" id="charInput" maxlength="1">
 
-    <!-- BUTTON TO DISPLAY IMAGE -->
-    <button onclick="displayImage()" id="submitButton">Show Image</button>
-<br>
+      <!-- BUTTON TO DISPLAY IMAGE -->
+      <button onclick="displayImage()" id="submitButton">Show Image</button>
+    </div>
     <!-- IMAGE TO DISPLAY -->
-    <img id="displayedImage" src="" alt="Displayed Image">
+    <div class="img">
+      <img id="displayedImage" src="" alt="Displayed Image">
+    </div>
 
 
     <!-- Image Display Script Below -->
@@ -119,7 +132,7 @@
                 */
 
                 // IF INVALID INPUT IS ENTERED, DISPLAY ALTERNATE IMAGE
-                imgElement.src = "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmtkdnJhMXY4Njd1cXR3MTM3MW1nMzZ1NXNhNHlhOHA0MWF2dDUzdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13dRJkj5wgKq9q/giphy.gif"
+                imgElement.src = "https://i.pinimg.com/474x/a7/32/5a/a7325a28843f65c35b4c12f40122bee7.jpg"
                 imgElement.style.display = "block";
             }
         }
